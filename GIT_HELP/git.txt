@@ -1,0 +1,53 @@
+$ ls -lA 把隐藏的文件也列出来
+$ ls  列出所有文件名
+$ ls -l 以表的形式列出所有文件的详情信息
+$ mkdir 文件夹
+$ cd 文件夹 进入文件夹内
+$ git init 初始化git仓库
+$ pwd 显示文件夹路径
+项目级别/仓库级别：仅在当前本地库范围内有效
+git config user.name tom_pro
+git config user.email goodMorning_pro@atguigu.com
+系统用户级别：登陆当前操作系统的用户范围
+git config --global user.name tom_pro
+git config -global user.emil goodMorning_pro@atguigu.com
+
+git cat file 命令显示版本库对象的内容、类型及大小信息。
+cat ~/.gitconfig  
+set nu 显示vim行号
+git add 
+git commit -m "" 文件.后缀名
+git log			显示的最完整
+git log --pretty=online       索引值全显 简洁一些
+git log --oneline                 索引 显示一部分 更简介一些
+git reflog 		在上一个命令之上添加了移动指针需要的步数
+多屏显示操控方式：
+空格向下翻页
+b向上翻页
+q退出
+git reset --hard 索引值
+tail -n 3 文件名.后缀名         显示文件的后三行
+git reset --hard HEAD^^^   退后历史版本三次
+git reset --hard HEAD~3     退后历史版本三次
+rm  文件名.后缀名 		删除文件
+
+
+git branch -v   查看所有分支
+git branch name 新建一个以name为名字的分支
+git checkout name 切换分支
+git merge 分支名   合并分支名
+Ctrl+l清屏
+git remote -v
+git remote add MyRepository https://github.com/CAmateur/MyRepository.git
+git fetch MyRepository master
+git merge MyRepository/master
+mkdir dir1 创建一个叫做 'dir1' 的目录' 
+mkdir dir1 dir2 同时创建两个目录 
+mkdir -p /tmp/dir1/dir2 创建一个目录树 
+rm -f file1 删除一个叫做 'file1' 的文件' 
+rmdir dir1 删除一个叫做 'dir1' 的目录' 
+rm -rf dir1 删除一个叫做 'dir1' 的目录并同时删除其内容 
+rm -rf dir1 dir2 同时删除两个目录及它们的内容 
+
+ssh-keygen -t rsa -C 邮箱
+$ rm -r .ssh
