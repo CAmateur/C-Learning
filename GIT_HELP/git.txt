@@ -51,3 +51,19 @@ rm -rf dir1 dir2 同时删除两个目录及它们的内容
 
 ssh-keygen -t rsa -C 邮箱
 $ rm -r .ssh
+出现push错误
+git pull --rebase origin master
+git branch -d  分支名      删除分支
+git push origin --delete 分支名   删除远程分支名 
+
+git rm -r --cached a/2.txt //删除a目录下的2.txt文件   删除a目录git rm -r --cached a
+
+git commit -m "删除a目录下的2.txt文件" 
+
+git push
+
+ git add -A  提交所有变化
+
+git add -u  提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)
+
+git add .  提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件
