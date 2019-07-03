@@ -10,6 +10,7 @@ int main(int argc, char**argv)
 {
 	string file_name = "E:\\hh.txt";
 	string temp_str;
+	string find_str;
 
 	/*byte temp[2048];*/
 	//fstream file("E:\\hh.txt", ios::in | ios::binary);
@@ -45,6 +46,17 @@ int main(int argc, char**argv)
 	{
 		cout << "单词：" << it->first;
 		cout << "出现的次数"<<it->second << endl;
+	}
+
+	while (cin >> find_str)
+	{
+		if (voca_number.count(find_str))
+		{
+			auto it = voca_number.find(find_str);
+			cout << "单词:"<<it->first << endl;
+			cout << "出现的次数:"<<it->second << endl;
+		}
+		
 	}
 	system("pause");
 	return 0;
