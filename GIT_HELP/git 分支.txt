@@ -1,0 +1,207 @@
+Git客户端
+
+在master或其他分支下（本地分支），输入命令git checkout -b slave新建一个分支。
+输入命令git push origin slave把分支推送到远程仓库。
+EGit客户端
+
+登录Git仓库页面，单击“branchs > local”。
+选中“master”右键选择“新建分支”，输入分支的名称。
+单击“确定”（默认在master下新建分支）。
+选中新分支，右键选择“push branch”，推送分支到远程仓库。
+TortoiseGit客户端
+
+选中本地库，右键选择“tortoiseGit > create branch”新建分支。
+切换到新分支上，右键选择“push branch”，推送分支到远程仓库。
+
+****************************************************************************************************************
+
+进入代码仓库详情页面。
+单击仓库导航区“文件 > 对比” 显示“分支对比”页面，可以对比已有分支，如图1所示。
+合并分支进行提交
+选择需要比较的分支后，单击“对比”即显示对比结果。
+
+
+****************************************************************************************************************
+远程仓库（云端）
+
+远程仓库合并分支，master/slave分支有新增的文件，需要把slave/master合并到master/slave：
+
+分支对比。
+比较从“slave”到“master”的不同，分支不同可进行合并。
+
+合并分支。
+把源分支（master/slave）合并到目标分支(slave/master)上，合并完成后slave/master会有新增的文件。
+
+本地仓库（合并分支再Push到远程仓库）
+
+Git客户端
+
+在master分支上，master和其他分支是不同的分支（本地分支），输入命令git merge slave，进行本地分支合并。
+输入命令git push origin master把分支推送到远程仓库，master上的文件即为合并后的。
+EGit客户端
+
+选中本地库，切换到master分支，单击“team”右键选择“merge”。
+选择devlop分支，进行本地分支的合并。
+Push master分支到远程仓库。
+TortoiseGit客户端
+
+选中本地库master分支，右键选择“tortoiseGit > merge”。
+选择devlop分支，进行本地分支的合并。
+右键选择“push branch”，推送分支到远程仓库。
+
+****************************************************************************************************************
+
+
+
+操作步骤
+查看目前代码的修改状态，运行git status命令检查目前所做的修改。
+已暂存 （changes to be committed）
+已修改 （changed but not updated）
+未跟踪 （untracked files）
+查看代码修改内容。
+比较某文件与最近提交节点的差异：git diff <file>
+比较某文件在提交节点a、节点b的差异：git diff <hashcode> <hashcode> <file>
+ 说明：
+如果该文件已暂存，则git diff –cached<file>。
+如果省略后面一个“hashcode”，则默认表示与上一提交节点比较（也可以利用^运算符）。
+暂存需要提交的新建、修改或删除文件。
+新建的文件：git add <file>
+修改的文件：git add <file>
+删除的文件：git rm <file>
+提交已暂存的文件：git commit
+ 说明：
+注意注释填写规范。如果提交注释书写有误或漏提文件，可以使用命令：git commit --amend（修改最近一次提交）。
+
+同步到服务器。
+将服务器代码同步到本地：git pull
+同步到服务器：git push origin <本地分支名>
+ 说明：
+如果git pull失败，请按照提示还原有冲突的文件，再次尝试同步：git checkout -- <有冲突的文件路径>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+使用流程说明
+
+操作步骤
+
+说明
+
+安装
+
+根据需要安装对应版本：
+
+Git Windows版
+Git OSX版 OSX版 OSX版 OSX版
+Git Linux版
+新建仓库
+
+创建新文件夹，打开，然后执行如下命令：
+
+git init
+以创建新的git仓库。
+
+检出仓库
+
+创建一个本地仓库的克隆版本，执行如下命令：
+
+git clone /path/to/repository
+如果是远端服务器上的仓库，命令为：
+
+git clone username@host:/path/to/repository
+工作流
+
+本地仓库由Git维护的三棵“树”组成：
+
+工作目录：持有实际文件。
+缓存区（Index）：像个缓存区域，临时保存做的改动。
+HEAD：指向最近一次提交后的结果。
+添加与提交
+
+将改动内容添加到缓存区，使用如下命令：
+
+git add <filename>
+git add *
+这是Git基本工作流程的第一步；使用如下命令提交实际改动：
+
+git commit -m "代码提交信息"
+此时改动已经提交到了HEAD，但是还没到远端仓库。
+
+推送改动
+
+改动内容目前已经在本地仓库的HEAD中。执行如下命令以将这些改动提交到远端仓库：
+
+git push origin master
+可以将master换成需要推送的任何分支。
+
+如果没有克隆现有仓库，且需要将仓库连接到某个远程服务器，可以使用如下命令添加：
+
+git remote add origin <server>
+将改动推送到所添加的服务器上。
+
+创建分支
+
+分支是用来将特性开发绝缘开来的。在创建仓库时，master是“默认的”主分支。在其他分支上进行开发，完成后再将它们合并到主分支上。
+
+创建一个名为“feature_x”的分支，并切换过去：
+git checkout -b feature_x
+切换回主分支：
+git checkout master
+将分支推送到远端仓库（不推送该分支，就仅自己所见）：
+git push origin <branch>
+再把新建的分支删掉：
+git branch -d feature_x
+更新与合并（分支）
+
+更新本地仓库至最新改动，执行：
+git pull
+以在你的工作目录中获取（fetch）并合并（merge）远端的改动。
+
+合并其他分支到当前分支（如master），执行：
+git merge <branch>
+说明：
+两种情况下，Git都会尝试去自动合并改动。但自动合并并非次次都能成功，并可能导致冲突（conflicts）。这时候就需要修改这些文件，手动合并这些冲突（conflicts）。
+
+改完之后，需要执行如下命令将它们标记为合并成功：
+git add <filename>
+在合并改动之前，也可以使用如下命令查看：
+git diff <source_branch> <target_branch>
+创建标签
+
+在软件发布时创建标签，是被推荐的。可以执行如下命令以创建一个名为“1.0.0”的标签：
+
+git tag 1.0.0 1b2e1d63ff
+“1b2e1d63ff”是要标记的提交ID的前10位字符。使用如下命令获取提交ID：
+
+git log
+也可以用该提交ID的少一些的前几位，保持ID唯一即可。
+
+替换本地改动
+
+如果误操作，可以使用如下命令替换掉本地改动：
+
+git checkout -- <filename>
+此命令会使用HEAD中的最新内容替换掉工作目录中的文件。已添加到缓存区的改动，以及新文件，均不受影响。
+
+如果需要丢弃所有的本地改动与提交，可以到服务器上获取最新的版本并将本地主分支指向到它：
+
+git fetch origin
+git reset --hard origin/master
