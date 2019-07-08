@@ -5,7 +5,7 @@ using namespace std;
 
 int main(int argc, char**argv)
 {
-	string file_name = "E:/hh.txt";
+	string file_name = "E:/Program Files (x86)/Steam/GameOverlayUI.exe";
 	char tem_char;
 	file_operation read_file(file_name, 16, 8);
 	while (cin >> tem_char)
