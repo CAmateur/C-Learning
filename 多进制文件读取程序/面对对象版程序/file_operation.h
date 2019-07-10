@@ -9,21 +9,17 @@
 using namespace std;
 class file_operation
 {
-
-
-
 public:
-	
-	file_operation(string &file_name,int x,int y,int show_x=50);//默认值一定要在声明处出现定义内不能出现
+	file_operation(string &file_name, int x, int y, int show_x = 50);//默认值一定要在声明处出现定义内不能出现
 	~file_operation();
 	bool read_up();
 	bool read_down();
-	
+	bool is_open();
+	void clear();
 private:
 	void puts_hex();
 	void puts_chars();
-
-	void get_cursor(int &x,int &y);
+	void get_cursor(int &x, int &y);
 	void set_cursor(int x, int y);
 private:
 	int axis_horizontal;
@@ -40,6 +36,5 @@ private:
 	shared_ptr<byte> buffer;
 	string name;
 	set<char> except_for;
-
 };
 
