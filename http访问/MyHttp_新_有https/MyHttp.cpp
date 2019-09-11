@@ -95,7 +95,7 @@ bool MyHttpBase::Init()
 
 	if (connect(this->Socket, (sockaddr *)&saddr, sizeof(saddr)) == -1)
 	{
-		throw MyHttpBaseException("连接失败!");
+		throw MyHttpBaseException("连接失败!");//抛出异常
 		return false;
 
 
@@ -266,7 +266,7 @@ std::string MyHttpBase::SetDatePacked(const std::string pageAddr, const std::str
 		request << "\r\n";
 
 	}
-	else throw MyHttpBaseException("没有此访问方法!");
+	else throw MyHttpBaseException("没有此访问方法!");//抛出异常
 
 	return request.str();
 }
@@ -333,7 +333,7 @@ std::string Http::PageAccess(const std::string PageAddr, const std::string Acces
 	}
 	else
 	{
-		throw MyHttpBaseException("Http发送失败!");
+		throw MyHttpBaseException("Http发送失败!");//抛出异常
 		return "";
 	}
 
@@ -354,7 +354,7 @@ Https::Https(const std::string Adder, const int AdderPort) : MyHttpBase(Adder, A
 	ssl = SSL_new(ctx);
 	if (ssl == NULL)
 	{
-		throw MyHttpBaseException("SLL NEW ERROR!");
+		throw MyHttpBaseException("SLL NEW ERROR!");//抛出异常
 	}
 	//将SSL与TCP SOCKET 连接 
 	SSL_set_fd(ssl, this->Socket);
@@ -362,7 +362,7 @@ Https::Https(const std::string Adder, const int AdderPort) : MyHttpBase(Adder, A
 	ret = SSL_connect(ssl);
 	if (ret == -1)
 	{
-		throw MyHttpBaseException("SSL ACCEPT ERROR!");
+		throw MyHttpBaseException("SSL ACCEPT ERROR!");//抛出异常
 	}
 }
 Https::~Https()
@@ -390,7 +390,7 @@ std::string Https::PageAccess(const std::string PageAddr, const std::string Acce
 	if (ret == -1)
 	{
 		//std::cout << "发送 失败！" << std::endl;
-		throw MyHttpBaseException("Https发送失败!");
+		throw MyHttpBaseException("Https发送失败!");//抛出异常
 		return "";
 	}
 	else
@@ -415,4 +415,3 @@ std::string Https::GetHtml()
 		return UtfToGbk(html.c_str());
 	return html;
 }
-
