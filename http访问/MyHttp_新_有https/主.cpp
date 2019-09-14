@@ -7,7 +7,7 @@ using namespace std;
 int main(int argc, char**argv)
 {
 	try {
-		Https https("ss1.bdstati.com");
+		Https https("www.baiducom");
 		https.SetAccept("*text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8*");
 		https.SetAccept_Language("zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2	");
 		https.SetCache_Control("max-age=0");

@@ -87,6 +87,10 @@ bool MyHttpBase::Init()
 	WSAStartup(0x202, &WSAData);
 	this->Socket = socket(AF_INET, SOCK_STREAM, 0);//参数protocol用来指定socket所使用的传输协议编号。这一参数通常不具体设置，一般设置为0即可。
 	hostent *host = gethostbyname(this->ServerAddr.c_str());
+	if (host == nullptr)
+	{
+		throw MyHttpBaseException("host填写错误!");
+	}
 	sockaddr_in saddr;
 	saddr.sin_family = AF_INET;
 	saddr.sin_port = htons(this->ServerPort);

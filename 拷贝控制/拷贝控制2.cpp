@@ -48,11 +48,16 @@ A func(int a)
 
 int main(int argc, char **argv)
 {
-A c=func(1);
-A d = (func(1));
-A e = std::move(func(1));
-A f;
-f = func(1);
+	A c = func(1);
+	std::cout << "-----------------------" << std::endl;
+	A d = (func(1));
+	std::cout << "-----------------------" << std::endl;
+	A e = std::move(func(1));
+	std::cout << "-----------------------" << std::endl;
+	A f;
+	std::cout << "-----------------------" << std::endl;
+	f = func(1);
+	std::cout << "-----------------------" << std::endl;
 	system("pause");
 	return 0;
 }
