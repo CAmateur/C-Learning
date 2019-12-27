@@ -1,0 +1,6 @@
+LIBRARY "test"
+
+EXPORTS
+
+Test	@1	NONAME
+没有名字按编号导出，用于隐藏函数（使用的时候删除此行）
